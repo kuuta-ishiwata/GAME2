@@ -44,7 +44,7 @@ int BLOCKsize = 16;
 struct Player
 {
 	Vector2 position;
-	int radius;
+	Vector2 radius;
 	Vector2 speed;
 	Vector2 progress;
 	bool flag;
@@ -62,7 +62,7 @@ enum BLOCK
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	// ライブラリの初期化
-	Novice::Initialize(kWindowTitle, 1280, 720);
+	Novice::Initialize(kWindowTitle, 800, 675);
 
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
@@ -71,15 +71,21 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	int posX = 50;
 	int posY = 50;
 
+	int a = 0;
+	int b = 0;
+
 	Player player;
 	player.position = { 100, 50 };
-	player.radius = 50, 50;
+	player.radius = { 25,50 };
 	Player player2;
 	player2.position = { 150,50 };
-	player2.radius = 50;
+	player2.radius = {25, 50 };
 	Player player3;
 	player3.position = { 200,50 };
-	player3.radius = 50;
+	player3.radius = { 25,50 };
+	
+	
+	
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -94,22 +100,26 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
+		
+
 			//本持つ
 		if (keys[DIK_SPACE])
 		{
+			
 
 
 		}
 
 		if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
 		{
-
-
+		
+			
 
 		}
 
 		if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
 		{
+
 
 
 		}
@@ -119,12 +129,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		{
 
 
-
-
 		}
 
 		if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
 		{
+
 
 
 		}
@@ -134,8 +143,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		{
 
 
-		}
 
+		}
+		
 
 
 		///
@@ -147,9 +157,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 
 		Novice::DrawBox(posX, posY, 25, 50, 0.0f, RED, kFillModeSolid);
-		Novice::DrawBox(player.position.x, player.position.y, player.radius, player.radius, 0.0f, RED, kFillModeSolid);
-		Novice::DrawBox(player2.position.x, player2.position.y, player2.radius, player2.radius, 0.0f, RED, kFillModeSolid);
-		Novice::DrawBox(player3.position.x, player3.position.y, player3.radius, player3.radius, 0.0f, RED, kFillModeSolid);
+		Novice::DrawBox(player.position.x, player.position.y, player.radius.x, player.radius.y, 0.0f, RED, kFillModeSolid);
+		Novice::DrawBox(player2.position.x, player2.position.y, player2.radius.x, player2.radius.y, 0.0f, RED, kFillModeSolid);
+		Novice::DrawBox(player3.position.x, player3.position.y, player3.radius.x, player3.radius.y, 0.0f, RED, kFillModeSolid);
 
 
 
