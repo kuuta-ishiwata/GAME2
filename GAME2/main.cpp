@@ -178,13 +178,14 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		}*/
 
-		if (player.position.x == Book.position.x && player.position.x == Book.position.y)
-		{
 
+		
 			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
 			{
-				flag = true;
-
+				if (player.position.x == Book.position.x)
+				{
+					flag = true;
+				}
 			}
 			if (flag == true)
 			{
@@ -213,16 +214,18 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			{
 				flag = false;
 
+			
 			}
-		}
+		
 
 
 		if (keys[DIK_S] == preKeys[DIK_S] == 0)
 		{
+
 			Book2.flag = true;
 
-
 		}
+
 		if (Book2.flag == true)
 		{
 			player.position.x = Book2.position.x - 5;
