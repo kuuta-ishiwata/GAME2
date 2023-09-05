@@ -16,9 +16,9 @@ int date[MAPY][MAPX]
 {
 
 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+	1,0,2,0,3,0,4,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+	1,0,2,0,3,0,4,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+	1,0,2,0,3,0,4,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
@@ -51,6 +51,13 @@ struct Player
 	int timer;
 };
 
+struct book
+{
+	Vector2 position;
+	Vector2 radius;
+	bool flag;
+};
+
 
 enum BLOCK
 {
@@ -73,17 +80,25 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	int a = 0;
 	int b = 0;
+	int flag = false;
+	int flag2 = false;
 
 	Player player;
-	player.position = { 100, 50 };
-	player.radius = { 25,50 };
-	Player player2;
-	player2.position = { 150,50 };
-	player2.radius = {25, 50 };
-	Player player3;
-	player3.position = { 200,50 };
-	player3.radius = { 25,50 };
+	player.position = { 95, 45 };
+	player.radius = { 10,40 };
+	player.speed = { 25,25 };
 	
+	book Book;
+	Book.position = { 150,50 };
+	Book.radius = { 10, 40 };
+	Book.flag = false;
+	book Book2;
+	Book2.position = { 200,50 };
+	Book2.radius = { 10,40 };
+	Book2.flag = false;
+
+
+	int grahHandle = Novice::LoadTexture("./GJ3_Frame.png");
 	
 	
 
@@ -102,50 +117,149 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		
 
-			//本持つ
-		if (keys[DIK_SPACE])
-		{
-			
-
-
-		}
-
 		if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
 		{
 		
-			
+			player.position.x -= player.speed.x;
 
 		}
-
 		if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
 		{
 
-
+			player.position.x += player.speed.x;
 
 		}
-
-
 		if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
 		{
 
-
+			player.position.y -= player.speed.y;
 		}
 
 		if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
 		{
 
-
+			player.position.y += player.speed.y;
 
 		}
 
 
-		if (keys[DIK_SPACE])
+		//本持つ
+		/*if (keys[DIK_SPACE])
+		{
+			if (player.position.x == Book.position.x && player.position.y == Book.position.y)
+			{
+				if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+				{
+
+					player.position.x = Book.position.x;
+
+				}
+
+				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+				{
+
+					player.position.x = Book.position.x;
+
+				}
+
+				if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+				{
+
+					player.position.y = Book.position.y;
+				}
+
+				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+				{
+
+					player.position.y = Book.position.y;
+				}
+
+			}
+
+		}*/
+
+		if (player.position.x == Book.position.x && player.position.x == Book.position.y)
 		{
 
+			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
+			{
+				flag = true;
+
+			}
+			if (flag == true)
+			{
+
+				player.position.x = Book.position.x - 5;
+				player.position.y = Book.position.y - 5;
+
+				if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+				{
+					Book.position.x -= player.speed.x;
+				}
+				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+				{
+					Book.position.x += player.speed.x;
+				}
+				if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+				{
+					Book.position.y -= player.speed.y;
+				}
+				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+				{
+					Book.position.y += player.speed.y;
+				}
+			}
+			if (keys[DIK_A] == preKeys[DIK_A] == 0)
+			{
+				flag = false;
+
+			}
+		}
+
+
+		if (keys[DIK_S] == preKeys[DIK_S] == 0)
+		{
+			Book2.flag = true;
 
 
 		}
-		
+		if (Book2.flag == true)
+		{
+			player.position.x = Book2.position.x - 5;
+			player.position.y = Book2.position.y - 5;
+
+			if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+			{
+				Book2.position.x -= player.speed.x;
+
+			}
+			if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+			{
+
+				Book2.position.x += player.speed.x;
+
+			}
+			if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+			{
+
+				Book2.position.y -= player.speed.y;
+			}
+
+			if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+			{
+
+				Book2.position.y += player.speed.y;
+
+			}
+
+		}
+
+		if (keys[DIK_A] == preKeys[DIK_A] == 0)
+		{
+			Book2.flag = false;
+
+		}
+
 
 
 		///
@@ -156,10 +270,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 
-		Novice::DrawBox(posX, posY, 25, 50, 0.0f, RED, kFillModeSolid);
-		Novice::DrawBox(player.position.x, player.position.y, player.radius.x, player.radius.y, 0.0f, RED, kFillModeSolid);
-		Novice::DrawBox(player2.position.x, player2.position.y, player2.radius.x, player2.radius.y, 0.0f, RED, kFillModeSolid);
-		Novice::DrawBox(player3.position.x, player3.position.y, player3.radius.x, player3.radius.y, 0.0f, RED, kFillModeSolid);
+		//Novice::DrawBox(posX, posY, 25, 50, 0.0f, RED, kFillModeSolid);
+		//Novice::DrawBox(player.position.x, player.position.y, player.radius.x, player.radius.y, 0.0f, BLUE, kFillModeSolid);
+		//Novice::DrawBox(player2.position.x, player2.position.y, player2.radius.x, player2.radius.y, 0.0f, WHITE, kFillModeSolid);
+		//Novice::DrawBox(player3.position.x, player3.position.y, player3.radius.x, player3.radius.y, 0.0f, BLACK, kFillModeSolid);
 
 
 
@@ -169,10 +283,16 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			{
 				if (date[j][i] == block)
 				{
+
 					Novice::DrawBox(i * 32, j * 32, 35, 35, 0.0f, WHITE, kFillModeSolid);
+					Novice::DrawBox(posX, posY, 25, 50, 0.0f, RED, kFillModeSolid);
+					
 				}
 			}
 		}
+		Novice::DrawSprite(player.position.x, player.position.y, grahHandle, 1, 1, 0.0f, WHITE);
+		Novice::DrawBox(Book.position.x, Book.position.y, Book.radius.x, Book.radius.y, 0.0f, WHITE, kFillModeSolid);
+		Novice::DrawBox(Book2.position.x, Book2.position.y, Book2.radius.x, Book2.radius.y, 0.0f, BLACK, kFillModeSolid);
 
 
 		///
