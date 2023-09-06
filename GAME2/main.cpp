@@ -143,49 +143,15 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		}
 
 
-		//本持つ
-		/*if (keys[DIK_SPACE])
+
+		if (player.position.x  == Book.position.x +5 && player.position.y == Book.position.y -5 )
 		{
-			if (player.position.x == Book.position.x && player.position.y == Book.position.y)
-			{
-				if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
-				{
 
-					player.position.x = Book.position.x;
-
-				}
-
-				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
-				{
-
-					player.position.x = Book.position.x;
-
-				}
-
-				if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
-				{
-
-					player.position.y = Book.position.y;
-				}
-
-				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
-				{
-
-					player.position.y = Book.position.y;
-				}
-
-			}
-
-		}*/
-
-
-		
 			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
 			{
-				if (player.position.x == Book.position.x)
-				{
-					flag = true;
-				}
+
+				flag = true;
+
 			}
 			if (flag == true)
 			{
@@ -210,14 +176,14 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 					Book.position.y += player.speed.y;
 				}
 			}
+		}
+
 			if (keys[DIK_A] == preKeys[DIK_A] == 0)
 			{
 				flag = false;
-
-			
 			}
-		
 
+		
 
 		if (keys[DIK_S] == preKeys[DIK_S] == 0)
 		{
