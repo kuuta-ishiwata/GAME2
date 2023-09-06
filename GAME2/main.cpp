@@ -142,16 +142,16 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		}
 
+		
 
 
-		if (player.position.x  == Book.position.x +5 && player.position.y == Book.position.y -5 )
+		if (player.position.x == Book.position.x  &&  player.position.y == Book.position.y)
 		{
 
 			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
 			{
 
 				flag = true;
-
 			}
 			if (flag == true)
 			{
@@ -185,7 +185,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		
 
-		if (keys[DIK_S] == preKeys[DIK_S] == 0)
+
+			/*
+		if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
 		{
 
 			Book2.flag = true;
@@ -228,7 +230,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			Book2.flag = false;
 
 		}
-
+		*/
 
 
 		///
