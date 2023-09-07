@@ -96,7 +96,18 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Book2.position = { 200,50 };
 	Book2.radius = { 10,40 };
 	Book2.flag = false;
-
+	book Book3;
+	Book3.position = { 250,50 };
+	Book3.radius = { 10,40 };
+	Book3.flag = false;
+	book Book4;
+	Book4.position = { 300,50 };
+	Book4.radius = { 10,40 };
+	Book4.flag = false;
+	book Book5;
+	Book5.position = { 350,50 };
+	Book5.radius = { 10,40 };
+	Book5.flag = false;
 
 	int grahHandle = Novice::LoadTexture("./GJ3_Frame.png");
 	
@@ -144,14 +155,15 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		
 
-
-		if (player.position.x == Book.position.x  &&  player.position.y == Book.position.y)
-		{
-
+		//book
 			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
 			{
 
-				flag = true;
+				if (player.position.x == Book.position.x - 5 && player.position.y == Book.position.y - 5)
+				{
+					flag = true;
+				}
+
 			}
 			if (flag == true)
 			{
@@ -175,23 +187,22 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				{
 					Book.position.y += player.speed.y;
 				}
+
 			}
-		}
 
 			if (keys[DIK_A] == preKeys[DIK_A] == 0)
 			{
 				flag = false;
 			}
 
-		
+			//Book2
 
-
-			/*
 		if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
 		{
-
-			Book2.flag = true;
-
+			if (player.position.x == Book2.position.x - 5 && player.position.y == Book2.position.y - 5)
+			{
+				Book2.flag = true;
+			}
 		}
 
 		if (Book2.flag == true)
@@ -230,7 +241,55 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			Book2.flag = false;
 
 		}
-		*/
+		
+		//Book3
+		if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
+		{
+
+			if (player.position.x == Book3.position.x - 5 && player.position.y == Book3.position.y - 5)
+			{
+				Book3.flag = true;
+			}
+
+		}
+		if (Book3.flag == true)
+		{
+
+			player.position.x = Book3.position.x - 5;
+			player.position.y = Book3.position.y - 5;
+
+			if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+			{
+				Book3.position.x -= player.speed.x;
+			}
+			if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+			{
+				Book3.position.x += player.speed.x;
+			}
+			if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+			{
+				Book3.position.y -= player.speed.y;
+			}
+			if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+			{
+				Book3.position.y += player.speed.y;
+			}
+
+		}
+
+		if (keys[DIK_A] == preKeys[DIK_A] == 0)
+		{
+			Book3.flag = false;
+		}
+
+		//Book4
+
+
+		//Book5
+
+
+
+
 
 
 		///
@@ -256,7 +315,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				{
 
 					Novice::DrawBox(i * 32, j * 32, 35, 35, 0.0f, WHITE, kFillModeSolid);
-					Novice::DrawBox(posX, posY, 25, 50, 0.0f, RED, kFillModeSolid);
+					
 					
 				}
 			}
@@ -264,6 +323,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		Novice::DrawSprite(player.position.x, player.position.y, grahHandle, 1, 1, 0.0f, WHITE);
 		Novice::DrawBox(Book.position.x, Book.position.y, Book.radius.x, Book.radius.y, 0.0f, WHITE, kFillModeSolid);
 		Novice::DrawBox(Book2.position.x, Book2.position.y, Book2.radius.x, Book2.radius.y, 0.0f, BLACK, kFillModeSolid);
+		Novice::DrawBox(Book3.position.x, Book3.position.y, Book3.radius.x, Book3.radius.y, 0.0f, RED, kFillModeSolid);
 
 
 		///
