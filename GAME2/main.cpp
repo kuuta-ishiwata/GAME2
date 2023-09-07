@@ -282,6 +282,57 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			Book3.flag = false;
 		}
 
+
+		if (keys[DIK_S] == preKeys[DIK_S] == 0)
+		{
+			if (Book.position.x == Book3.position.x && Book.position.x == Book3.position.y)
+			{
+				if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+				{
+					Book.position.x -= player.speed.x;
+				}
+				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+				{
+					Book.position.x += player.speed.x;
+				}
+				if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+				{
+					Book.position.y -= player.speed.y;
+				}
+				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+				{
+					Book.position.y += player.speed.y;
+				}
+			}
+
+			if (Book2.position.x == Book3.position.x && Book2.position.x == Book3.position.y)
+			{
+				if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+				{
+					Book2.position.x -= player.speed.x;
+
+				}
+				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+				{
+
+					Book2.position.x += player.speed.x;
+
+				}
+				if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+				{
+
+					Book2.position.y -= player.speed.y;
+				}
+
+				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+				{
+
+					Book2.position.y += player.speed.y;
+
+				}
+			}
+		}
+
 		//Book4
 
 
