@@ -135,6 +135,14 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	int count11 = Novice::LoadTexture("./count30.png");
 	int count12 = Novice::LoadTexture("./count60.png");
 
+	int view = Novice::LoadTexture("./view.png");
+	int CLEAR = Novice::LoadTexture("./CLEAR.png");
+	int GameOver = Novice::LoadTexture("./GameOver.png");
+	int explanation = Novice::LoadTexture("./explanation.png");
+	int start = Novice::LoadTexture("./start.png");
+
+
+
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
 		// フレームの開始
@@ -148,6 +156,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
+
+		
 		
 
 		if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
@@ -235,6 +245,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			}
 		}
+
 
 		if (Book2.flag == true)
 		{
