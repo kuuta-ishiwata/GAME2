@@ -96,22 +96,31 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	player.radius = { 10,40 };
 	player.speed = { 25,25 };
 	
+
 	book Book;
 	Book.position = { 150,287 };
 	Book.radius = { 10, 40 };
 	Book.flag = false;
+
+
 	book Book2;
 	Book2.position = { 200,287 };
 	Book2.radius = { 10,40 };
 	Book2.flag = false;
+
+
 	book Book3;
 	Book3.position = { 250,287 };
 	Book3.radius = { 10,40 };
 	Book3.flag = false;
+
+
 	book Book4;
 	Book4.position = { 300,287 };
 	Book4.radius = { 10,40 };
 	Book4.flag = false;
+
+
 	book Book5;
 	Book5.position = { 350,287 };
 	Book5.radius = { 10,40 };
@@ -119,6 +128,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	
 	int timer = 0;
 	int count = 0;
+	int scene = 0;
 
 	int grahHandle = Novice::LoadTexture("./GJ3_Frame.png");
 	int count0 = Novice::LoadTexture("./count0.png");
@@ -136,10 +146,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	int count12 = Novice::LoadTexture("./count60.png");
 
 	int view = Novice::LoadTexture("./view.png");
-	int CLEAR = Novice::LoadTexture("./CLEAR.png");
+	int Cleare = Novice::LoadTexture("./CLEAR.png");
 	int GameOver = Novice::LoadTexture("./GameOver.png");
 	int explanation = Novice::LoadTexture("./explanation.png");
 	int start = Novice::LoadTexture("./start.png");
+
 
 
 
@@ -156,52 +167,74 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-
-		
 		
 
-		if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
-		{
-		
-			player.position.x -= player.speed.x;
-
-		}
-		if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+		switch (scene)
 		{
 
-			player.position.x += player.speed.x;
+		case 0:
 
-		}
-		if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
-		{
+			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
+			{
 
-			player.position.y -= player.speed.y;
-		}
+				scene = 1;
 
-		if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
-		{
+			}
+			break;
 
-			player.position.y += player.speed.y;
+		case 1:
 
-		}
+			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
+			{
+				scene = 2;
+			}
 
-		
+			break;
 
-		//book
+		case 2:
+
+			if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+			{
+
+				player.position.x -= player.speed.x;
+
+			}
+			if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+			{
+
+				player.position.x += player.speed.x;
+
+			}
+			if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+			{
+
+				player.position.y -= player.speed.y;
+			}
+
+			if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+			{
+
+				player.position.y += player.speed.y;
+
+			}
+
+
+
+			//book
 			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
 			{
 
 				if (player.position.x == Book.position.x - 5 && player.position.y == Book.position.y - 5)
 				{
 
-						flag = true;
+					flag = true;
 
 				}
 
 			}
 			if (flag == true)
 			{
-			
+
 
 				player.position.x = Book.position.x - 5;
 				player.position.y = Book.position.y - 5;
@@ -236,152 +269,28 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			//Book2
 
-		if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
-		{
-			if (player.position.x == Book2.position.x - 5 && player.position.y == Book2.position.y - 5)
+			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
 			{
+				if (player.position.x == Book2.position.x - 5 && player.position.y == Book2.position.y - 5)
+				{
 
-				Book2.flag = true;
+					Book2.flag = true;
 
-			}
-		}
-
-
-		if (Book2.flag == true)
-		{
-			player.position.x = Book2.position.x - 5;
-			player.position.y = Book2.position.y - 5;
-
-			if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
-			{
-
-				Book2.position.x -= player.speed.x;
-
-			}
-			if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
-			{
-
-				Book2.position.x += player.speed.x;
-
-			}
-			if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
-			{
-
-				Book2.position.y -= player.speed.y;
-
+				}
 			}
 
-			if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+
+			if (Book2.flag == true)
 			{
-
-				Book2.position.y += player.speed.y;
-
-			}
-
-		}
-
-		if (keys[DIK_A] == preKeys[DIK_A] == 0)
-		{
-
-			Book2.flag = false;
-
-		}
-		
-
-		//Book3
-		if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
-		{
-
-			if (player.position.x == Book3.position.x - 5&& player.position.y == Book3.position.y - 5)
-			{
-
-				Book3.flag = true;
-
-			}
-
-		}
-
-		if (Book3.flag == true)
-		{
-
-			player.position.x = Book3.position.x - 5;
-			player.position.y = Book3.position.y - 5;
-
-
-			if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
-			{
-				Book3.position.x -= player.speed.x;
-			}
-			if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
-			{
-				Book3.position.x += player.speed.x;
-			}
-			if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
-			{
-				Book3.position.y -= player.speed.y;
-			}
-			if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
-			{
-				Book3.position.y += player.speed.y;
-			}
-
-		
-		}
-
-		if (keys[DIK_A] == preKeys[DIK_A] == 0)
-		{
-
-			Book3.flag = false;
-
-		}
-
-
-		if (keys[DIK_S] == preKeys[DIK_S] == 0)
-		{
-
-
-			if (Book.position.x == Book3.position.x && Book.position.x == Book3.position.y)
-			{
-
-				flag = true;
+				player.position.x = Book2.position.x - 5;
+				player.position.y = Book2.position.y - 5;
 
 				if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
 				{
 
-					Book.position.x -= player.speed.x;
-
-				}
-				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
-				{
-
-					Book.position.x += player.speed.x;
-
-				}
-				if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
-				{
-
-					Book.position.y -= player.speed.y;
-
-				}
-				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
-				{
-
-					Book.position.y += player.speed.y;
-
-				}
-
-			}
-
-			if (Book2.position.x == Book3.position.x && Book2.position.x == Book3.position.y)
-			{
-
-				Book2.flag = true;
-
-				if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
-				{
 					Book2.position.x -= player.speed.x;
-				}
 
+				}
 				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
 				{
 
@@ -392,6 +301,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				{
 
 					Book2.position.y -= player.speed.y;
+
 				}
 
 				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
@@ -403,31 +313,189 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			}
 
+			if (keys[DIK_A] == preKeys[DIK_A] == 0)
+			{
+
+				Book2.flag = false;
+
+			}
+
+
+			//Book3
+			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
+			{
+
+				if (player.position.x == Book3.position.x - 5 && player.position.y == Book3.position.y - 5)
+				{
+
+					Book3.flag = true;
+
+				}
+
+			}
+
+			if (Book3.flag == true)
+			{
+
+				player.position.x = Book3.position.x - 5;
+				player.position.y = Book3.position.y - 5;
+
+
+				if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+				{
+					Book3.position.x -= player.speed.x;
+				}
+				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+				{
+					Book3.position.x += player.speed.x;
+				}
+				if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+				{
+					Book3.position.y -= player.speed.y;
+				}
+				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+				{
+					Book3.position.y += player.speed.y;
+				}
+
+
+			}
+
+			if (keys[DIK_A] == preKeys[DIK_A] == 0)
+			{
+
+				Book3.flag = false;
+
+			}
+
+
+			if (keys[DIK_S] == preKeys[DIK_S] == 0)
+			{
+
+
+				if (Book.position.x == Book3.position.x && Book.position.x == Book3.position.y)
+				{
+
+					flag = true;
+
+					if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+					{
+
+						Book.position.x -= player.speed.x;
+
+					}
+					if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+					{
+
+						Book.position.x += player.speed.x;
+
+					}
+					if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+					{
+
+						Book.position.y -= player.speed.y;
+
+					}
+					if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+					{
+
+						Book.position.y += player.speed.y;
+
+					}
+
+				}
+
+				if (Book2.position.x == Book3.position.x && Book2.position.x == Book3.position.y)
+				{
+
+					Book2.flag = true;
+
+					if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+					{
+						Book2.position.x -= player.speed.x;
+					}
+
+					if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+					{
+
+						Book2.position.x += player.speed.x;
+
+					}
+					if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+					{
+
+						Book2.position.y -= player.speed.y;
+					}
+
+					if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+					{
+
+						Book2.position.y += player.speed.y;
+
+					}
+
+				}
+
+			}
+
+
+			//Book4
+
+
+			//Book5
+
+
+			timer++;
+			if (timer >= 60)
+			{
+				count = 1;
+			}
+			if (timer >= 120)
+			{
+				count = 2;
+			}
+			if (timer >= 180)
+			{
+				count = 3;
+			}
+
+			Novice::ScreenPrintf(200, 100, "%d", timer);
+			Novice::ScreenPrintf(200, 120, "%d", count);
+
+
+
+			if (timer >= 6000)
+			{
+				scene == 3;
+
+			}
+
+			break;
+
+
+		case 3:
+
+			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
+			{
+				scene = 3;
+			}
+			break;
+
+
+
+		case 4:
+
+			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
+			{
+				scene = 4;
+			}
+
+
+			break;
 		}
+		
 
-
-		//Book4
-
-
-		//Book5
-
-	
-		timer++;
-		if (timer >= 60)
-		{
-			count = 1 ;
-		}
-		if (timer >= 120)
-		{
-			count = 2;
-		}
-		if (timer >= 180)
-		{
-			count = 3;
-		}
-
-		Novice::ScreenPrintf(200, 100, "%d", timer);
-		Novice::ScreenPrintf(200, 120, "%d", count);
+		
 
 
 
@@ -445,125 +513,151 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		//Novice::DrawBox(player3.position.x, player3.position.y, player3.radius.x, player3.radius.y, 0.0f, BLACK, kFillModeSolid);
 
 
-
-		for (int i = 0; i < MAPX; i++)
+		if (scene == 0)
 		{
-			for (int j = 0; j < MAPY; j++)
+			Novice::DrawSprite(0, 0, start, 1, 1, 0.0f, WHITE);
+
+		}
+
+		else if (scene == 1)
+		{
+			Novice::DrawSprite(0, 0, explanation, 1, 1, 0.0f, WHITE);
+		}
+
+
+		else if (scene == 2)
+		{
+			for (int i = 0; i < MAPX; i++)
 			{
-				if (date[j][i] == block)
+				for (int j = 0; j < MAPY; j++)
 				{
-					Novice::DrawBox(i * 32 , j * 32 + 200, 35, 35, 0.0f, WHITE, kFillModeSolid);
+					if (date[j][i] == block)
+					{
+						Novice::DrawBox(i * 32, j * 32 + 200, 35, 35, 0.0f, WHITE, kFillModeSolid);
+
+					}
+				}
+			}
+
+			for (int i = 0; i < MAPX; i++)
+			{
+				for (int j = 0; j < MAPY; j++)
+				{
+
+					if (date[j][i] == 2)
+					{
+
+						Novice::DrawBox(i * 32, j * 32, Book.radius.x, Book.radius.y, 0.0f, RED, kFillModeSolid);
+
+					}
 
 				}
 			}
-		}
+			Novice::DrawSprite(player.position.x, player.position.y, grahHandle, 1, 1, 0.0f, WHITE);
+			Novice::DrawBox(Book.position.x, Book.position.y, Book.radius.x, Book.radius.y, 0.0f, WHITE, kFillModeSolid);
+			Novice::DrawBox(Book2.position.x, Book2.position.y, Book2.radius.x, Book2.radius.y, 0.0f, BLACK, kFillModeSolid);
+			Novice::DrawBox(Book3.position.x, Book3.position.y, Book3.radius.x, Book3.radius.y, 0.0f, RED, kFillModeSolid);
 
-		for (int i = 0; i < MAPX; i++)
-		{
-			for (int j = 0; j < MAPY; j++)
+
+			timer++;
+
+
+			if (countflag == false)
+			{
+				Novice::DrawSprite(350, 0, count12, 1, 1, 0.0f, WHITE);
+			}
+
+
+			if (timer >= 3000 && countflag2 == false)
+			{
+				countflag = true;
+				Novice::DrawSprite(350, 0, count11, 1, 1, 0.0f, WHITE);
+
+			}
+
+			if (timer >= 5000 && countflag3 == false)
+			{
+				countflag2 = true;
+				Novice::DrawSprite(350, 0, count10, 1, 1, 0.0f, WHITE);
+
+			}
+			if (timer >= 5100 && countflag4 == false)
+			{
+				countflag3 = true;
+				Novice::DrawSprite(350, 0, count9, 1, 1, 0.0f, WHITE);
+
+			}
+			if (timer >= 5200 && countflag5 == false)
+			{
+				countflag4 = true;
+				Novice::DrawSprite(350, 0, count8, 1, 1, 0.0f, WHITE);
+
+			}
+			if (timer >= 5300 && countflag6 == false)
+			{
+				countflag5 = true;
+				Novice::DrawSprite(350, 0, count7, 1, 1, 0.0f, WHITE);
+
+			}
+			if (timer >= 5400 && countflag7 == false)
+			{
+				countflag6 = true;
+				Novice::DrawSprite(350, 0, count6, 1, 1, 0.0f, WHITE);
+
+			}
+
+			if (timer >= 5400 && countflag8 == false)
+			{
+				countflag7 = true;
+				Novice::DrawSprite(350, 0, count5, 1, 1, 0.0f, WHITE);
+
+			}
+
+			if (timer >= 5500 && countflag9 == false)
+			{
+				countflag8 = true;
+				Novice::DrawSprite(350, 0, count4, 1, 1, 0.0f, WHITE);
+
+			}
+			if (timer >= 5600 && countflag10 == false)
+			{
+				countflag9 = true;
+				Novice::DrawSprite(350, 0, count3, 1, 1, 0.0f, WHITE);
+
+			}
+
+			if (timer >= 5700 && countflag11 == false)
 			{
 
-				if (date[j][i] == 2)
-				{
+				countflag10 = true;
+				Novice::DrawSprite(350, 0, count2, 1, 1, 0.0f, WHITE);
 
-					Novice::DrawBox(i * 32, j * 32, Book.radius.x, Book.radius.y, 0.0f, RED, kFillModeSolid);
+			}
 
-				}
+			if (timer >= 5800 && countflag12 == false)
+			{
+				countflag11 = true;
+				Novice::DrawSprite(350, 0, count1, 1, 1, 0.0f, WHITE);
+
+			}
+
+			if (timer >= 5900 && countflag13 == false)
+			{
+				countflag12 = true;
+				Novice::DrawSprite(350, 0, count0, 1, 1, 0.0f, WHITE);
 
 			}
 		}
-		Novice::DrawSprite(player.position.x, player.position.y, grahHandle, 1, 1, 0.0f, WHITE);
-		Novice::DrawBox(Book.position.x, Book.position.y, Book.radius.x, Book.radius.y, 0.0f, WHITE, kFillModeSolid);
-		Novice::DrawBox(Book2.position.x, Book2.position.y, Book2.radius.x, Book2.radius.y, 0.0f, BLACK, kFillModeSolid);
-		Novice::DrawBox(Book3.position.x, Book3.position.y, Book3.radius.x, Book3.radius.y, 0.0f, RED, kFillModeSolid);
-	
-		
-		timer++;
-
-		
-		if (countflag == false)
+		else if (scene == 3)
 		{
-			Novice::DrawSprite(350, 0, count12, 1, 1, 0.0f, WHITE);
-		}
 
-
-		if (timer >= 3000&& countflag2 == false )
-		{
-			countflag = true;
-			Novice::DrawSprite(350, 0, count11, 1, 1, 0.0f, WHITE);
-			
-		}
-		
-		if (timer >= 5000 && countflag3 == false)
-		{
-			countflag2 = true;
-			Novice::DrawSprite(350, 0, count10, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(0, 0, Cleare, 1, 1, 0.0f, WHITE);
 
 		}
-		if (timer >= 5100 && countflag4 == false)
-		{
-			countflag3 = true;
-			Novice::DrawSprite(350, 0, count9, 1, 1, 0.0f, WHITE);
-
-		}
-		if (timer >= 5200 && countflag5 == false)
-		{
-			countflag4 = true;
-			Novice::DrawSprite(350, 0, count8, 1, 1, 0.0f, WHITE);
-
-		}
-		if (timer >= 5300 && countflag6 == false)
-		{
-			countflag5 = true;
-			Novice::DrawSprite(350, 0, count7, 1, 1, 0.0f, WHITE);
-
-		}
-		if (timer >= 5400 && countflag7 == false)
-		{
-			countflag6 = true;
-			Novice::DrawSprite(350, 0, count6, 1, 1, 0.0f, WHITE);
-
-		}
-
-		if (timer >= 5400 && countflag8 == false)
-		{
-			countflag7 = true;
-			Novice::DrawSprite(350, 0, count5, 1, 1, 0.0f, WHITE);
-
-		}
-
-		if (timer >= 5500 && countflag9 == false)
-		{
-			countflag8 = true;
-			Novice::DrawSprite(350, 0, count4, 1, 1, 0.0f, WHITE);
-
-		}
-		if (timer >= 5600 && countflag10 == false)
-		{
-			countflag9 = true;
-			Novice::DrawSprite(350, 0, count3, 1, 1, 0.0f, WHITE);
-
-		}
-
-		if (timer >= 5700 && countflag11 == false)
+		else if (scene == 4)
 		{
 
-			countflag10 = true;
-			Novice::DrawSprite(350, 0, count2, 1, 1, 0.0f, WHITE);
-
-		}
-
-		if (timer >= 5800 && countflag12 == false)
-		{
-			countflag11 = true;
-			Novice::DrawSprite(350, 0, count1, 1, 1, 0.0f, WHITE);
-
-		}
-
-		if (timer >= 5900 && countflag13 == false)
-		{
-			countflag12 = true;
-			Novice::DrawSprite(350, 0, count0, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(0, 0, GameOver, 1, 1, 0.0f, WHITE);
 
 		}
 
