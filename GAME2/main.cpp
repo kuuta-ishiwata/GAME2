@@ -18,25 +18,10 @@ int date[MAPY][MAPX]
 
 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+	
 
 };
 //ブロックサイズ
@@ -107,28 +92,28 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 
 	Player player;
-	player.position = { 95, 45 };
+	player.position = { 95, 282 };
 	player.radius = { 10,40 };
 	player.speed = { 25,25 };
 	
 	book Book;
-	Book.position = { 150,50 };
+	Book.position = { 150,287 };
 	Book.radius = { 10, 40 };
 	Book.flag = false;
 	book Book2;
-	Book2.position = { 200,50 };
+	Book2.position = { 200,287 };
 	Book2.radius = { 10,40 };
 	Book2.flag = false;
 	book Book3;
-	Book3.position = { 250,50 };
+	Book3.position = { 250,287 };
 	Book3.radius = { 10,40 };
 	Book3.flag = false;
 	book Book4;
-	Book4.position = { 300,50 };
+	Book4.position = { 300,287 };
 	Book4.radius = { 10,40 };
 	Book4.flag = false;
 	book Book5;
-	Book5.position = { 350,50 };
+	Book5.position = { 350,287 };
 	Book5.radius = { 10,40 };
 	Book5.flag = false;
 	
@@ -136,6 +121,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	int count = 0;
 
 	int grahHandle = Novice::LoadTexture("./GJ3_Frame.png");
+	int count0 = Novice::LoadTexture("./count0.png");
 	int count1 = Novice::LoadTexture("./count.png");
 	int count2 = Novice::LoadTexture("./count2.png");
 	int count3 = Novice::LoadTexture("./count3.png");
@@ -455,7 +441,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			{
 				if (date[j][i] == block)
 				{
-					Novice::DrawBox(i * 32, j * 32, 35, 35, 0.0f, WHITE, kFillModeSolid);
+					Novice::DrawBox(i * 32 , j * 32 + 200, 35, 35, 0.0f, WHITE, kFillModeSolid);
 
 				}
 			}
@@ -486,90 +472,91 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		
 		if (countflag == false)
 		{
-			Novice::DrawSprite(400, 0, count12, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(350, 0, count12, 1, 1, 0.0f, WHITE);
 		}
 
 
 		if (timer >= 3000&& countflag2 == false )
 		{
 			countflag = true;
-			Novice::DrawSprite(400, 0, count11, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(350, 0, count11, 1, 1, 0.0f, WHITE);
 			
 		}
 		
 		if (timer >= 5000 && countflag3 == false)
 		{
 			countflag2 = true;
-			Novice::DrawSprite(400, 0, count10, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(350, 0, count10, 1, 1, 0.0f, WHITE);
 
 		}
 		if (timer >= 5100 && countflag4 == false)
 		{
 			countflag3 = true;
-			Novice::DrawSprite(400, 0, count9, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(350, 0, count9, 1, 1, 0.0f, WHITE);
 
 		}
 		if (timer >= 5200 && countflag5 == false)
 		{
 			countflag4 = true;
-			Novice::DrawSprite(400, 0, count9, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(350, 0, count8, 1, 1, 0.0f, WHITE);
 
 		}
 		if (timer >= 5300 && countflag6 == false)
 		{
 			countflag5 = true;
-			Novice::DrawSprite(400, 0, count8, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(350, 0, count7, 1, 1, 0.0f, WHITE);
 
 		}
 		if (timer >= 5400 && countflag7 == false)
 		{
 			countflag6 = true;
-			Novice::DrawSprite(400, 0, count7, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(350, 0, count6, 1, 1, 0.0f, WHITE);
 
 		}
+
 		if (timer >= 5400 && countflag8 == false)
 		{
 			countflag7 = true;
-			Novice::DrawSprite(400, 0, count6, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(350, 0, count5, 1, 1, 0.0f, WHITE);
 
 		}
+
 		if (timer >= 5500 && countflag9 == false)
 		{
 			countflag8 = true;
-			Novice::DrawSprite(400, 0, count5, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(350, 0, count4, 1, 1, 0.0f, WHITE);
 
 		}
 		if (timer >= 5600 && countflag10 == false)
 		{
 			countflag9 = true;
-			Novice::DrawSprite(400, 0, count4, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(350, 0, count3, 1, 1, 0.0f, WHITE);
 
 		}
+
 		if (timer >= 5700 && countflag11 == false)
 		{
 
 			countflag10 = true;
-			Novice::DrawSprite(400, 0, count3, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(350, 0, count2, 1, 1, 0.0f, WHITE);
 
 		}
+
 		if (timer >= 5800 && countflag12 == false)
 		{
 			countflag11 = true;
-			Novice::DrawSprite(400, 0, count2, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(350, 0, count1, 1, 1, 0.0f, WHITE);
 
 		}
+
 		if (timer >= 5900 && countflag13 == false)
 		{
 			countflag12 = true;
-			Novice::DrawSprite(400, 0, count1, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(350, 0, count0, 1, 1, 0.0f, WHITE);
 
 		}
 
-		if (timer >= 180)
-		{
-			count = 3;
-		}
-
+	        
 		///
 		/// ↑描画処理ここまで
 		///
