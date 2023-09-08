@@ -19,9 +19,8 @@ int date[MAPY][MAPX]
 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+	1,0,2,0,3,0,4,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	
 
 };
 //ブロックサイズ
@@ -50,7 +49,12 @@ enum BLOCK
 {
 
 	NOME,
-	block
+	block,
+	block2,
+	block3,
+	block4,
+	block5
+	
    
 };
 
@@ -58,6 +62,8 @@ enum  Book
 {
 	None,
 	book1
+
+
 };
 
 // Windowsアプリでのエントリーポイント(main関数)
@@ -96,6 +102,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	player.radius = { 10,40 };
 	player.speed = { 25,25 };
 	
+	block2;
 
 	book Book;
 	Book.position = { 150,287 };
@@ -151,6 +158,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	int explanation = Novice::LoadTexture("./explanation.png");
 	int start = Novice::LoadTexture("./start.png");
 
+	int Book1 = Novice::LoadTexture("./GJ3_Book1_1.png");
+	int BOOK2 = Novice::LoadTexture("./GJ3_Book1_2.png");
+	int BOOK3 = Novice::LoadTexture("./GJ3_Book1_3.png");
+	int BOOK4 = Novice::LoadTexture("./GJ3_Book1_4.png");
+	int BOOK5 = Novice::LoadTexture("./GJ3_Book1_5.png");
+
 
 
 
@@ -180,6 +193,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				scene = 1;
 
 			}
+
 			break;
 
 		case 1:
@@ -232,6 +246,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				}
 
 			}
+
+
 			if (flag == true)
 			{
 
@@ -282,6 +298,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			if (Book2.flag == true)
 			{
+
 				player.position.x = Book2.position.x - 5;
 				player.position.y = Book2.position.y - 5;
 
@@ -313,12 +330,14 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			}
 
+
 			if (keys[DIK_A] == preKeys[DIK_A] == 0)
 			{
 
 				Book2.flag = false;
 
 			}
+
 
 
 			//Book3
@@ -334,6 +353,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			}
 
+
 			if (Book3.flag == true)
 			{
 
@@ -345,17 +365,21 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				{
 					Book3.position.x -= player.speed.x;
 				}
+
 				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
 				{
 					Book3.position.x += player.speed.x;
 				}
+
 				if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
 				{
 					Book3.position.y -= player.speed.y;
 				}
+
 				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
 				{
 					Book3.position.y += player.speed.y;
+
 				}
 
 
@@ -371,7 +395,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			if (keys[DIK_S] == preKeys[DIK_S] == 0)
 			{
-
 
 				if (Book.position.x == Book3.position.x && Book.position.x == Book3.position.y)
 				{
@@ -402,7 +425,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 						Book.position.y += player.speed.y;
 
 					}
-
+					
 				}
 
 				if (Book2.position.x == Book3.position.x && Book2.position.x == Book3.position.y)
@@ -419,8 +442,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 					{
 
 						Book2.position.x += player.speed.x;
-
 					}
+
 					if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
 					{
 
@@ -438,12 +461,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			}
 
-
 			//Book4
 
 
 			//Book5
-
 
 			timer++;
 			if (timer >= 60)
@@ -464,10 +485,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 
 
-			if (timer >= 6000)
-			{
-				scene == 3;
 
+			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
+			{
+				scene = 3;
 			}
 
 			break;
@@ -477,8 +498,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
 			{
-				scene = 3;
+				scene = 4;
 			}
+
 			break;
 
 
@@ -487,11 +509,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
 			{
-				scene = 4;
+				scene = 0;
 			}
 
 
 			break;
+
 		}
 		
 
@@ -515,13 +538,17 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		if (scene == 0)
 		{
+
+
 			Novice::DrawSprite(0, 0, start, 1, 1, 0.0f, WHITE);
 
 		}
 
 		else if (scene == 1)
 		{
+
 			Novice::DrawSprite(0, 0, explanation, 1, 1, 0.0f, WHITE);
+		
 		}
 
 
@@ -553,10 +580,27 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 				}
 			}
+			for (int i = 0; i < MAPX; i++)
+			{
+				for (int j = 0; j < MAPY; j++)
+				{
+
+					if (date[j][i] == block2)
+					{
+
+						Novice::DrawSprite()
+
+					}
+
+				}
+			}
+
 			Novice::DrawSprite(player.position.x, player.position.y, grahHandle, 1, 1, 0.0f, WHITE);
-			Novice::DrawBox(Book.position.x, Book.position.y, Book.radius.x, Book.radius.y, 0.0f, WHITE, kFillModeSolid);
-			Novice::DrawBox(Book2.position.x, Book2.position.y, Book2.radius.x, Book2.radius.y, 0.0f, BLACK, kFillModeSolid);
-			Novice::DrawBox(Book3.position.x, Book3.position.y, Book3.radius.x, Book3.radius.y, 0.0f, RED, kFillModeSolid);
+			Novice::DrawSprite(Book.position.x, Book.position.y, Book1, 1,1, 0.0f, WHITE);
+			Novice::DrawSprite(Book2.position.x, Book2.position.y, BOOK2,1,1, 0.0f, WHITE);
+			Novice::DrawSprite(Book3.position.x, Book3.position.y, BOOK3,1,1, 0.0f, WHITE);
+			Novice::DrawSprite(Book4.position.x, Book4.position.y, BOOK4, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Book5.position.x, Book5.position.y, BOOK5, 1, 1, 0.0f, WHITE);
 
 
 			timer++;
