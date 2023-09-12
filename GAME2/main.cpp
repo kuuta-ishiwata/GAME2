@@ -112,19 +112,19 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	block2;
 
 	book Book;
-	Book.position = { 150,287 };
+	Book.position = { 350,287 };
 	Book.radius = { 10, 40 };
 	Book.flag = false;
 
 
 	book Book2;
-	Book2.position = { 200,287 };
+	Book2.position = { 500,287 };
 	Book2.radius = { 10,40 };
 	Book2.flag = false;
 
 
 	book Book3;
-	Book3.position = { 250,287 };
+	Book3.position = { 450,287 };
 	Book3.radius = { 10,40 };
 	Book3.flag = false;
 
@@ -136,22 +136,22 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 
 	book Book5;
-	Book5.position = { 350,287 };
+	Book5.position = { 150,287 };
 	Book5.radius = { 10,40 };
 	Book5.flag = false;
 	
 	book Book6;
-	Book6.position = { 400,287 };
+	Book6.position = { 600,287 };
 	Book6.radius = { 10,40 };
 	Book6.flag = false;
 
 	book Book7;
-	Book7.position = { 450,287 };
+	Book7.position = { 250,287 };
 	Book7.radius = { 10,40 };
 	Book7.flag = false;
 
 	book Book8;
-	Book8.position = { 500,287 };
+	Book8.position = { 200,287 };
 	Book8.radius = { 10,40 };
 	Book8.flag = false;
 
@@ -161,7 +161,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Book9.flag = false;
 
 	book Book10;
-	Book10.position = { 600,287 };
+	Book10.position = { 400,287 };
 	Book10.radius = { 10,40 };
 	Book10.flag = false;
 
@@ -251,6 +251,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
+
+
+
 		if (!Novice::IsPlayingAudio(Music))
 		{
 			Novice::PlayAudio(Music, true, 0.5f);
@@ -267,6 +270,17 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				countflag = false;
 				timer = 0;
 				scene = 1;
+				player.position = { 95, 282 };
+				Book.position = { 350,287 };
+				Book2.position = { 500,287 };
+				Book3.position = { 450,287 };
+				Book4.position = { 300,287 };
+				Book5.position = { 150,287 };
+				Book6.position = { 600,287 };
+				Book7.position = { 250,287 };
+				Book8.position = { 200,287 };
+				Book9.position = { 550,287 };
+				Book10.position = { 400,287 };
 
 			}
 
@@ -784,6 +798,646 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			}
 
 
+			//Book6
+
+
+			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
+			{
+
+
+				if (player.position.x == Book6.position.x - 5 && player.position.y == Book6.position.y - 5)
+				{
+					Book6.flag = true;
+				}
+
+
+			}
+
+
+			if (Book6.flag == true)
+			{
+
+				player.position.x = Book6.position.x - 5;
+				player.position.y = Book6.position.y - 5;
+
+
+				if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+				{
+					Book6.position.x -= player.speed.x;
+				}
+
+				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+				{
+					Book6.position.x += player.speed.x;
+				}
+
+				if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+				{
+					Book6.position.y -= player.speed.y;
+				}
+
+				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+				{
+					Book6.position.y += player.speed.y;
+
+				}
+
+
+			}
+
+
+
+			if (keys[DIK_A] == preKeys[DIK_A] == 0)
+			{
+
+				Book6.flag = false;
+
+			}
+
+			/*
+			if (keys[DIK_S] == preKeys[DIK_S] == 0)
+			{
+
+				if (Book.position.x == Book6.position.x && Book.position.x == Book6.position.y)
+				{
+
+					flag = true;
+
+					if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+					{
+
+						Book.position.x -= player.speed.x;
+
+					}
+					if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+					{
+
+						Book.position.x += player.speed.x;
+
+					}
+					if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+					{
+
+						Book.position.y -= player.speed.y;
+
+					}
+					if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+					{
+
+						Book.position.y += player.speed.y;
+
+					}
+
+				}
+
+
+				if (Book2.position.x == Book6.position.x && Book2.position.x == Book6.position.y)
+				{
+
+					Book2.flag = true;
+
+					if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+					{
+						Book2.position.x -= player.speed.x;
+					}
+
+					if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+					{
+
+						Book2.position.x += player.speed.x;
+					}
+
+					if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+					{
+
+						Book2.position.y -= player.speed.y;
+					}
+
+					if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+					{
+
+						Book2.position.y += player.speed.y;
+
+					}
+
+				}
+
+			}
+			*/
+
+
+			//Book7
+
+
+			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
+			{
+
+
+				if (player.position.x == Book7.position.x - 5 && player.position.y == Book7.position.y - 5)
+				{
+					Book7.flag = true;
+				}
+
+
+			}
+
+
+			if (Book7.flag == true)
+			{
+
+				player.position.x = Book7.position.x - 5;
+				player.position.y = Book7.position.y - 5;
+
+
+				if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+				{
+					Book7.position.x -= player.speed.x;
+				}
+
+				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+				{
+					Book7.position.x += player.speed.x;
+				}
+
+				if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+				{
+					Book7.position.y -= player.speed.y;
+				}
+
+				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+				{
+					Book7.position.y += player.speed.y;
+
+				}
+
+
+			}
+
+
+
+			if (keys[DIK_A] == preKeys[DIK_A] == 0)
+			{
+
+				Book7.flag = false;
+
+			}
+
+
+			if (keys[DIK_S] == preKeys[DIK_S] == 0)
+			{
+
+				if (Book.position.x == Book7.position.x && Book.position.x == Book7.position.y)
+				{
+
+					flag = true;
+
+					if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+					{
+
+						Book.position.x -= player.speed.x;
+
+					}
+					if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+					{
+
+						Book.position.x += player.speed.x;
+
+					}
+					if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+					{
+
+						Book.position.y -= player.speed.y;
+
+					}
+					if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+					{
+
+						Book.position.y += player.speed.y;
+
+					}
+
+				}
+
+
+				if (Book2.position.x == Book7.position.x && Book2.position.x == Book7.position.y)
+				{
+
+					Book2.flag = true;
+
+					if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+					{
+						Book2.position.x -= player.speed.x;
+					}
+
+					if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+					{
+
+						Book2.position.x += player.speed.x;
+					}
+
+					if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+					{
+
+						Book2.position.y -= player.speed.y;
+					}
+
+					if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+					{
+
+						Book2.position.y += player.speed.y;
+
+					}
+
+				}
+
+			}
+
+			//Book8
+
+
+			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
+			{
+
+
+				if (player.position.x == Book8.position.x - 5 && player.position.y == Book8.position.y - 5)
+				{
+					Book8.flag = true;
+				}
+
+
+			}
+
+
+			if (Book8.flag == true)
+			{
+
+				player.position.x = Book8.position.x - 5;
+				player.position.y = Book8.position.y - 5;
+
+
+				if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+				{
+					Book8.position.x -= player.speed.x;
+				}
+
+				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+				{
+					Book8.position.x += player.speed.x;
+				}
+
+				if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+				{
+					Book8.position.y -= player.speed.y;
+				}
+
+				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+				{
+					Book8.position.y += player.speed.y;
+
+				}
+
+
+			}
+
+
+
+			if (keys[DIK_A] == preKeys[DIK_A] == 0)
+			{
+
+				Book8.flag = false;
+
+			}
+
+
+			if (keys[DIK_S] == preKeys[DIK_S] == 0)
+			{
+
+				if (Book.position.x == Book8.position.x && Book.position.x == Book8.position.y)
+				{
+
+					flag = true;
+
+					if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+					{
+
+						Book.position.x -= player.speed.x;
+
+					}
+					if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+					{
+
+						Book.position.x += player.speed.x;
+
+					}
+					if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+					{
+
+						Book.position.y -= player.speed.y;
+
+					}
+					if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+					{
+
+						Book.position.y += player.speed.y;
+
+					}
+
+				}
+
+
+				if (Book2.position.x == Book8.position.x && Book2.position.x == Book8.position.y)
+				{
+
+					Book2.flag = true;
+
+					if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+					{
+						Book2.position.x -= player.speed.x;
+					}
+
+					if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+					{
+
+						Book2.position.x += player.speed.x;
+					}
+
+					if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+					{
+
+						Book2.position.y -= player.speed.y;
+					}
+
+					if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+					{
+
+						Book2.position.y += player.speed.y;
+
+					}
+
+				}
+
+			}
+
+			//Book9
+
+
+			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
+			{
+
+
+				if (player.position.x == Book9.position.x - 5 && player.position.y == Book9.position.y - 5)
+				{
+					Book9.flag = true;
+				}
+
+
+			}
+
+
+			if (Book9.flag == true)
+			{
+
+
+				player.position.x = Book9.position.x - 5;
+				player.position.y = Book9.position.y - 5;
+
+
+				if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+				{
+
+					Book9.position.x -= player.speed.x;
+
+				}
+
+				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+				{
+
+					Book9.position.x += player.speed.x;
+
+				}
+
+				if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+				{
+
+					Book9.position.y -= player.speed.y;
+
+				}
+
+				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+				{
+
+					Book9.position.y += player.speed.y;
+
+				}
+
+
+			}
+
+
+
+			if (keys[DIK_A] == preKeys[DIK_A] == 0)
+			{
+
+				Book9.flag = false;
+
+			}
+
+
+			if (keys[DIK_S] == preKeys[DIK_S] == 0)
+			{
+
+				if (Book.position.x == Book9.position.x && Book.position.x == Book9.position.y)
+				{
+
+					flag = true;
+
+					if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+					{
+
+						Book.position.x -= player.speed.x;
+
+					}
+					if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+					{
+
+						Book.position.x += player.speed.x;
+
+					}
+					if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+					{
+
+						Book.position.y -= player.speed.y;
+
+					}
+					if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+					{
+
+						Book.position.y += player.speed.y;
+
+					}
+
+				}
+
+
+				if (Book2.position.x == Book9.position.x && Book2.position.x == Book9.position.y)
+				{
+
+					Book2.flag = true;
+
+					if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+					{
+						Book2.position.x -= player.speed.x;
+					}
+
+					if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+					{
+
+						Book2.position.x += player.speed.x;
+					}
+
+					if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+					{
+
+						Book2.position.y -= player.speed.y;
+					}
+
+					if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+					{
+
+						Book2.position.y += player.speed.y;
+
+					}
+
+				}
+
+			}
+
+			//Book10
+
+
+			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
+			{
+
+
+				if (player.position.x == Book10.position.x - 5 && player.position.y == Book10.position.y - 5)
+				{
+					Book10.flag = true;
+				}
+
+
+			}
+
+
+			if (Book10.flag == true)
+			{
+
+				player.position.x = Book10.position.x - 5;
+				player.position.y = Book10.position.y - 5;
+
+
+				if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+				{
+					Book10.position.x -= player.speed.x;
+				}
+
+				if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+				{
+					Book10.position.x += player.speed.x;
+				}
+
+				if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+				{
+					Book10.position.y -= player.speed.y;
+				}
+
+				if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+				{
+					Book10.position.y += player.speed.y;
+
+				}
+
+
+			}
+
+
+
+			if (keys[DIK_A] == preKeys[DIK_A] == 0)
+			{
+
+				Book10.flag = false;
+
+			}
+
+
+			if (keys[DIK_S] == preKeys[DIK_S] == 0)
+			{
+
+				if (Book.position.x == Book10.position.x && Book.position.x == Book10.position.y)
+				{
+
+					flag = true;
+
+					if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+					{
+
+						Book.position.x -= player.speed.x;
+
+					}
+					if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+					{
+
+						Book.position.x += player.speed.x;
+
+					}
+					if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+					{
+
+						Book.position.y -= player.speed.y;
+
+					}
+					if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+					{
+
+						Book.position.y += player.speed.y;
+
+					}
+
+				}
+
+
+				if (Book2.position.x == Book10.position.x && Book2.position.x == Book10.position.y)
+				{
+
+					Book2.flag = true;
+
+					if (keys[DIK_LEFT] && preKeys[DIK_LEFT] == 0)
+					{
+						Book2.position.x -= player.speed.x;
+					}
+
+					if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
+					{
+
+						Book2.position.x += player.speed.x;
+					}
+
+					if (keys[DIK_UP] && preKeys[DIK_UP] == 0)
+					{
+
+						Book2.position.y -= player.speed.y;
+					}
+
+					if (keys[DIK_DOWN] && preKeys[DIK_DOWN] == 0)
+					{
+
+						Book2.position.y += player.speed.y;
+
+					}
+
+				}
+
+			}
+
 
 
 			timer++;
@@ -806,6 +1460,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				Book3.position.x == 175 && Book3.position.y == 287&&
 				Book4.position.x == 200 && Book4.position.y == 287&&
 				Book5.position.x == 250 && Book5.position.y == 287&&
+				//Red
 			    Book6.position.x == 300 && Book6.position.y == 287&&
 				Book7.position.x == 350 && Book7.position.y == 287&&
 				Book8.position.x == 400 && Book8.position.y == 287&&
