@@ -1466,6 +1466,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				Book8.position.x == 400 && Book8.position.y == 287&&
 				Book9.position.x == 450 && Book9.position.y == 287&&
 				Book10.position.x == 500 && Book10.position.y == 287)
+
 			{
 			
 				scene = 3;
