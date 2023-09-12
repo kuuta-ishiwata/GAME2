@@ -19,7 +19,7 @@ int date[MAPY][MAPX]
 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,2,0,3,0,4,5,0,6,0,7,0,8,0,9,0,10,0,11,0,0,0,0,1,
+	1,0,2,0,3,0,4,0,5,0,6,0,7,0,8,0,9,0,10,0,11,0,0,0,1,
 	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 
 };
@@ -1455,18 +1455,16 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			}
 
 
-			if (Book.position.x == 75 && Book.position.y == 287&&
-				Book2.position.x == 125 && Book2.position.y == 287&&
-				Book3.position.x == 175 && Book3.position.y == 287&&
-				Book4.position.x == 200 && Book4.position.y == 287&&
-				Book5.position.x == 250 && Book5.position.y == 287&&
-				//Red
-			    Book6.position.x == 300 && Book6.position.y == 287&&
-				Book7.position.x == 350 && Book7.position.y == 287&&
-				Book8.position.x == 400 && Book8.position.y == 287&&
-				Book9.position.x == 450 && Book9.position.y == 287&&
-				Book10.position.x == 500 && Book10.position.y == 287)
-
+			if (Book.position.x== 150 && Book.position.y == 287&&
+				Book2.position.x == 200 && Book2.position.y == 287&&
+				Book3.position.x == 250 && Book3.position.y == 287&&
+				Book4.position.x == 300 && Book4.position.y == 287&&
+				Book5.position.x == 350 && Book5.position.y == 287&&
+		        Book6.position.x == 400 && Book6.position.y == 287&&
+		        Book7.position.x == 450 && Book7.position.y == 287&&
+		        Book8.position.x == 500 && Book8.position.y == 287&&
+		        Book9.position.x == 550 && Book9.position.y == 287&&
+		        Book10.position.x == 600 && Book10.position.y == 287)
 			{
 			
 				scene = 3;
