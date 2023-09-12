@@ -235,6 +235,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	int BOOK10 = Novice::LoadTexture("./GJ3_RedBook_5.png");
 
 
+	int Music = Novice::LoadAudio("./gamemusic.mp3");
+
+
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
 		// フレームの開始
@@ -248,7 +251,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-		
+		if (!Novice::IsPlayingAudio(Music))
+		{
+			Novice::PlayAudio(Music, true, 0.5f);
+		}
 
 		switch (scene)
 		{
@@ -257,6 +263,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
 			{
+
 				countflag = false;
 				timer = 0;
 				scene = 1;
@@ -267,9 +274,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		case 1:
 
+
 			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
 			{
+
 				scene = 2;
+
 			}
 
 			break;
@@ -280,6 +290,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			{
 
 				player.position.x -= player.speed.x;
+
 
 			}
 			if (keys[DIK_RIGHT] && preKeys[DIK_RIGHT] == 0)
