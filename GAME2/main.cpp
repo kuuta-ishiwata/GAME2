@@ -480,10 +480,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				count = 3;
 			}
 
-			Novice::ScreenPrintf(200, 100, "%d", timer);
-			Novice::ScreenPrintf(200, 120, "%d", count);
-
-
 
 
 			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
@@ -496,7 +492,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		case 3:
 
-			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
+			if (timer >= 6000 )
 			{
 				scene = 4;
 			}
@@ -551,53 +547,61 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		
 		}
 
+		
 
 		else if (scene == 2)
 		{
+
+			Novice::DrawSprite(0, 0, view, 1, 1, 0.0f, WHITE);
 			for (int i = 0; i < MAPX; i++)
 			{
 				for (int j = 0; j < MAPY; j++)
 				{
 					if (date[j][i] == block)
 					{
+
 						Novice::DrawBox(i * 32, j * 32 + 200, 35, 35, 0.0f, WHITE, kFillModeSolid);
 
 					}
 				}
 			}
 
+			//for (int i = 0; i < MAPX; i++)
+			//{
+			//	for (int j = 0; j < MAPY; j++)
+			//	{
+			//
+			//		if (date[j][i] == 2)
+			//		{
+			//
+			//			Novice::DrawBox(i * 32, j * 32, Book.radius.x, Book.radius.y, 0.0f, RED, kFillModeSolid);
+			//
+			//		}
+			//
+			//	}
+			//}
+
 			for (int i = 0; i < MAPX; i++)
 			{
-				for (int j = 0; j < MAPY; j++)
-				{
 
-					if (date[j][i] == 2)
-					{
-
-						Novice::DrawBox(i * 32, j * 32, Book.radius.x, Book.radius.y, 0.0f, RED, kFillModeSolid);
-
-					}
-
-				}
-			}
-			for (int i = 0; i < MAPX; i++)
-			{
 				for (int j = 0; j < MAPY; j++)
 				{
 
 					if (date[j][i] == block2)
 					{
 
-						Novice::DrawSprite()
+						Novice::DrawSprite(i * 32+135, j * 32+192, BOOK2, 1, 1, 0.0f, WHITE);
 
 					}
 
 				}
+
 			}
 
+		
 			Novice::DrawSprite(player.position.x, player.position.y, grahHandle, 1, 1, 0.0f, WHITE);
 			Novice::DrawSprite(Book.position.x, Book.position.y, Book1, 1,1, 0.0f, WHITE);
-			Novice::DrawSprite(Book2.position.x, Book2.position.y, BOOK2,1,1, 0.0f, WHITE);
+			//Novice::DrawSprite(Book2.position.x, Book2.position.y, BOOK2,1,1, 0.0f, WHITE);
 			Novice::DrawSprite(Book3.position.x, Book3.position.y, BOOK3,1,1, 0.0f, WHITE);
 			Novice::DrawSprite(Book4.position.x, Book4.position.y, BOOK4, 1, 1, 0.0f, WHITE);
 			Novice::DrawSprite(Book5.position.x, Book5.position.y, BOOK5, 1, 1, 0.0f, WHITE);
@@ -650,27 +654,27 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			}
 
-			if (timer >= 5400 && countflag8 == false)
+			if (timer >= 5500 && countflag8 == false)
 			{
 				countflag7 = true;
 				Novice::DrawSprite(350, 0, count5, 1, 1, 0.0f, WHITE);
 
 			}
 
-			if (timer >= 5500 && countflag9 == false)
+			if (timer >= 5600 && countflag9 == false)
 			{
 				countflag8 = true;
 				Novice::DrawSprite(350, 0, count4, 1, 1, 0.0f, WHITE);
 
 			}
-			if (timer >= 5600 && countflag10 == false)
+			if (timer >= 5700 && countflag10 == false)
 			{
 				countflag9 = true;
 				Novice::DrawSprite(350, 0, count3, 1, 1, 0.0f, WHITE);
 
 			}
 
-			if (timer >= 5700 && countflag11 == false)
+			if (timer >= 5800 && countflag11 == false)
 			{
 
 				countflag10 = true;
@@ -678,18 +682,24 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			}
 
-			if (timer >= 5800 && countflag12 == false)
+			if (timer >= 5900 && countflag12 == false)
 			{
 				countflag11 = true;
 				Novice::DrawSprite(350, 0, count1, 1, 1, 0.0f, WHITE);
 
 			}
 
-			if (timer >= 5900 && countflag13 == false)
+			if (timer >= 6000 && countflag13 == false)
 			{
 				countflag12 = true;
 				Novice::DrawSprite(350, 0, count0, 1, 1, 0.0f, WHITE);
 
+			}
+
+			if (timer >= 6000)
+
+			{
+				scene = 4;
 			}
 		}
 		else if (scene == 3)
