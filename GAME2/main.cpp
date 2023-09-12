@@ -677,7 +677,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			if (keys[DIK_SPACE] == preKeys[DIK_SPACE] == 0)
 			{
 
-
 				if (player.position.x == Book5.position.x - 5 && player.position.y == Book5.position.y - 5)
 				{
 					Book5.flag = true;
