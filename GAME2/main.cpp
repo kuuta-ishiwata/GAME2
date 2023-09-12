@@ -720,28 +720,29 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			}
 
 
-			if (Book.position.x == 150 && Book.position.y == 287&&
-				Book2.position.x == 200 && Book2.position.y == 287&&
-				Book3.position.x == 250 && Book3.position.y == 287&&
-				Book4.position.x == 300 && Book4.position.y == 287&&
-				Book5.position.x == 350 && Book5.position.y == 287)
+			//if (Book.position.x == 150 && Book.position.y == 287&&
+			//	Book2.position.x == 200 && Book2.position.y == 287&&
+			//	Book3.position.x == 250 && Book3.position.y == 287&&
+			//	Book4.position.x == 300 && Book4.position.y == 287&&
+			//	Book5.position.x == 350 && Book5.position.y == 287)
+			//{
+			//
+			//	scene = 3;
+			//
+			//}
+
+			if (timer >= 6000)
 			{
-
-				scene = 3;
-
+				scene = 4;
 			}
-			
+
 
 			break;
 
 
 		case 3:
 
-			if (timer >= 6000 )
-			{
-				scene = 4;
-			}
-
+			
 
 			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
 			{
