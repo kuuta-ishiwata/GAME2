@@ -44,6 +44,13 @@ struct book
 	bool flag;
 };
 
+struct Mark
+{
+
+	Vector2 position;
+
+
+};
 
 enum BLOCK
 {
@@ -133,6 +140,25 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Book5.radius = { 10,40 };
 	Book5.flag = false;
 	
+
+	//Mark
+	Mark Mark1;
+	Mark1.position= { 150,287 };
+
+	Mark Mark2;
+	Mark2.position = { 200,287 };
+
+	Mark Mark3;
+	Mark3.position = { 250,287 };
+
+	Mark Mark4;
+	Mark4.position = { 300,287 };
+	
+	Mark Mark5;
+	Mark5.position = { 350,287 };
+
+
+
 	int timer = 0;
 	int count = 0;
 	int scene = 0;
@@ -849,13 +875,21 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			//
 			//}
 
-		
+		   
 			Novice::DrawSprite(player.position.x, player.position.y, grahHandle, 1, 1, 0.0f, WHITE);
 			Novice::DrawSprite(Book.position.x, Book.position.y, Book1, 1,1, 0.0f, WHITE);
 			Novice::DrawSprite(Book2.position.x, Book2.position.y, BOOK2,1,1, 0.0f, WHITE);
 			Novice::DrawSprite(Book3.position.x, Book3.position.y, BOOK3,1,1, 0.0f, WHITE);
 			Novice::DrawSprite(Book4.position.x, Book4.position.y, BOOK4, 1, 1, 0.0f, WHITE);
 			Novice::DrawSprite(Book5.position.x, Book5.position.y, BOOK5, 1, 1, 0.0f, WHITE);
+
+
+			Novice::DrawSprite(Mark1.position.x -5, Mark1.position.y-5, grahHandle, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Mark2.position.x - 5, Mark2.position.y - 5, grahHandle, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Mark3.position.x - 5, Mark3.position.y - 5, grahHandle, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Mark4.position.x - 5, Mark4.position.y - 5, grahHandle, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Mark5.position.x - 5, Mark5.position.y - 5, grahHandle, 1, 1, 0.0f, WHITE);
+
 
 
 			timer++;
