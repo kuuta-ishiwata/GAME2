@@ -257,7 +257,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
 			{
-
+				countflag = false;
+				timer = 0;
 				scene = 1;
 
 			}
@@ -822,7 +823,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
 			{
-
+				
 				scene = 0;
 
 			}
@@ -834,7 +835,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
 			{
-
+				
 				scene = 0;
 
 			}
@@ -1049,6 +1050,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			}
 
+			Novice::ScreenPrintf(100, 100, "tiemr= %d", timer);
 			if (timer >= 6000)
 
 			{
