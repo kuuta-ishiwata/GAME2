@@ -2,7 +2,7 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-const char kWindowTitle[] = "学籍番号";
+const char kWindowTitle[] = "2042_BOOK TIDINESS";
 
 struct Vector2
 {
@@ -1675,6 +1675,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			if (timer >= 5500 && countflag8 == false)
 			{
+
 				countflag7 = true;
 				Novice::DrawSprite(350, 0, count5, 1, 1, 0.0f, WHITE);
 
@@ -1699,10 +1700,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				countflag10 = true;
 				Novice::DrawSprite(350, 0, count2, 1, 1, 0.0f, WHITE);
 
+
 			}
 
 			if (timer >= 5900 && countflag12 == false)
 			{
+
 				countflag11 = true;
 				Novice::DrawSprite(350, 0, count1, 1, 1, 0.0f, WHITE);
 
@@ -1710,12 +1713,13 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			if (timer >= 6000 && countflag13 == false)
 			{
+
 				countflag12 = true;
 				Novice::DrawSprite(350, 0, count0, 1, 1, 0.0f, WHITE);
 
 			}
 
-			Novice::ScreenPrintf(100, 100, "tiemr= %d", timer);
+
 			if (timer >= 6000)
 
 			{
