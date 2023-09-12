@@ -623,6 +623,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			}
 
+
+
 			if (keys[DIK_A] == preKeys[DIK_A] == 0)
 			{
 
@@ -666,6 +668,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 				}
 
+
 				if (Book2.position.x == Book5.position.x && Book2.position.x == Book5.position.y)
 				{
 
@@ -699,6 +702,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			}
 
+
+
+
 			timer++;
 			if (timer >= 60)
 			{
@@ -714,11 +720,17 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			}
 
 
-
-			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
+			if (Book.position.x == 150 && Book.position.y == 287&&
+				Book2.position.x == 200 && Book2.position.y == 287&&
+				Book3.position.x == 250 && Book3.position.y == 287&&
+				Book4.position.x == 300 && Book4.position.y == 287&&
+				Book5.position.x == 350 && Book5.position.y == 287)
 			{
+
 				scene = 3;
+
 			}
+			
 
 			break;
 
@@ -730,6 +742,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				scene = 4;
 			}
 
+
+			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
+			{
+				scene = 0;
+			}
 			break;
 
 
