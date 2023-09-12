@@ -166,6 +166,17 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Book10.flag = false;
 
 
+	book Book11;
+	Book11.position = { 400,237 };
+	Book11.radius = { 10,40 };
+	Book11.flag = false;
+
+	book Book12;
+	Book12.position = { 550,237};
+	Book12.radius = { 10,40 };
+	Book12.flag = false;
+
+
 	//Mark
 	Mark Mark1;
 	Mark1.position= { 150,287 };
@@ -281,6 +292,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				Book8.position = { 200,287 };
 				Book9.position = { 550,287 };
 				Book10.position = { 400,287 };
+
+
+
 
 			}
 
@@ -1593,7 +1607,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			//
 			//	}
 			//
-			//}
+			//
 
 		   
 
@@ -1608,6 +1622,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			Novice::DrawSprite(Book8.position.x, Book8.position.y, BOOK8, 1, 1, 0.0f, WHITE);
 			Novice::DrawSprite(Book9.position.x, Book9.position.y, BOOK9, 1, 1, 0.0f, WHITE);
 			Novice::DrawSprite(Book10.position.x, Book10.position.y, BOOK10, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Book11.position.x, Book11.position.y, BOOK10, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Book12.position.x, Book12.position.y, BOOK9, 1, 1, 0.0f, WHITE);
+			
 
 
 
