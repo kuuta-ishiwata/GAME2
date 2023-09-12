@@ -140,6 +140,31 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Book5.radius = { 10,40 };
 	Book5.flag = false;
 	
+	book Book6;
+	Book6.position = { 400,287 };
+	Book6.radius = { 10,40 };
+	Book6.flag = false;
+
+	book Book7;
+	Book7.position = { 450,287 };
+	Book7.radius = { 10,40 };
+	Book7.flag = false;
+
+	book Book8;
+	Book8.position = { 500,287 };
+	Book8.radius = { 10,40 };
+	Book8.flag = false;
+
+	book Book9;
+	Book9.position = { 550,287 };
+	Book9.radius = { 10,40 };
+	Book9.flag = false;
+
+	book Book10;
+	Book10.position = { 600,287 };
+	Book10.radius = { 10,40 };
+	Book10.flag = false;
+
 
 	//Mark
 	Mark Mark1;
@@ -157,7 +182,20 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Mark Mark5;
 	Mark5.position = { 350,287 };
 
+	Mark Mark6;
+	Mark6.position = { 400,287 };
 
+	Mark Mark7;
+	Mark7.position = { 450,287 };
+
+	Mark Mark8;
+	Mark8.position = { 500,287 };
+
+	Mark Mark9;
+	Mark9.position = { 550,287 };
+
+	Mark Mark10;
+	Mark10.position = { 600,287 };
 
 	int timer = 0;
 	int count = 0;
@@ -184,13 +222,17 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	int explanation = Novice::LoadTexture("./explanation.png");
 	int start = Novice::LoadTexture("./start.png");
 
+
 	int Book1 = Novice::LoadTexture("./GJ3_Book1_1.png");
 	int BOOK2 = Novice::LoadTexture("./GJ3_Book1_2.png");
 	int BOOK3 = Novice::LoadTexture("./GJ3_Book1_3.png");
 	int BOOK4 = Novice::LoadTexture("./GJ3_Book1_4.png");
 	int BOOK5 = Novice::LoadTexture("./GJ3_Book1_5.png");
-
-
+	int BOOK6 = Novice::LoadTexture("./GJ3_RedBook_1.png");
+	int BOOK7 = Novice::LoadTexture("./GJ3_RedBook_2.png");
+	int BOOK8 = Novice::LoadTexture("./GJ3_RedBook_3.png");
+	int BOOK9 = Novice::LoadTexture("./GJ3_RedBook_4.png");
+	int BOOK10 = Novice::LoadTexture("./GJ3_RedBook_5.png");
 
 
 	// ウィンドウの×ボタンが押されるまでループ
@@ -772,7 +814,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
 			{
+
 				scene = 0;
+
 			}
 			break;
 
@@ -782,11 +826,14 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			if (keys[DIK_RETURN] && preKeys[DIK_RETURN] == 0)
 			{
+
 				scene = 0;
+
 			}
 
 
 			break;
+
 
 		}
 		
@@ -811,7 +858,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		if (scene == 0)
 		{
-
 
 			Novice::DrawSprite(0, 0, start, 1, 1, 0.0f, WHITE);
 
@@ -876,12 +922,20 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			//}
 
 		   
+
 			Novice::DrawSprite(player.position.x, player.position.y, grahHandle, 1, 1, 0.0f, WHITE);
 			Novice::DrawSprite(Book.position.x, Book.position.y, Book1, 1,1, 0.0f, WHITE);
 			Novice::DrawSprite(Book2.position.x, Book2.position.y, BOOK2,1,1, 0.0f, WHITE);
 			Novice::DrawSprite(Book3.position.x, Book3.position.y, BOOK3,1,1, 0.0f, WHITE);
 			Novice::DrawSprite(Book4.position.x, Book4.position.y, BOOK4, 1, 1, 0.0f, WHITE);
 			Novice::DrawSprite(Book5.position.x, Book5.position.y, BOOK5, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Book6.position.x, Book6.position.y, BOOK6, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Book7.position.x, Book7.position.y, BOOK7, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Book8.position.x, Book8.position.y, BOOK8, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Book9.position.x, Book9.position.y, BOOK9, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Book10.position.x, Book10.position.y, BOOK10, 1, 1, 0.0f, WHITE);
+
+
 
 
 			Novice::DrawSprite(Mark1.position.x -5, Mark1.position.y-5, grahHandle, 1, 1, 0.0f, WHITE);
@@ -889,6 +943,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			Novice::DrawSprite(Mark3.position.x - 5, Mark3.position.y - 5, grahHandle, 1, 1, 0.0f, WHITE);
 			Novice::DrawSprite(Mark4.position.x - 5, Mark4.position.y - 5, grahHandle, 1, 1, 0.0f, WHITE);
 			Novice::DrawSprite(Mark5.position.x - 5, Mark5.position.y - 5, grahHandle, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Mark6.position.x - 5, Mark6.position.y - 5, grahHandle, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Mark7.position.x - 5, Mark7.position.y - 5, grahHandle, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Mark8.position.x - 5, Mark8.position.y - 5, grahHandle, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Mark9.position.x - 5, Mark9.position.y - 5, grahHandle, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(Mark10.position.x - 5, Mark10.position.y - 5, grahHandle, 1, 1, 0.0f, WHITE);
+
 
 
 
